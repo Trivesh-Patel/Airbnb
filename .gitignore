@@ -1,0 +1,31 @@
+# === Build ===
+/target/
+!/src/main/**/target/
+!/src/test/**/target/
+
+# === IntelliJ / IDE ===
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+#=== Logs ===
+*.log
+logs/
+hs_err_pid*
+
+# === OS Files ===
+.DS_Store
+Thumb.db
+
+# === Maven Wrapper ===
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# === Application Secrets ===
+src/main/resources/application-secret.properties
+src/main/resources/application-*.properties
+
+# === other ===
+*.class
