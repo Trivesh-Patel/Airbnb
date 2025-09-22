@@ -3,6 +3,8 @@ package com.project.airBnb.airbnbApp.services;
 import com.project.airBnb.airbnbApp.dto.HotelDto;
 import com.project.airBnb.airbnbApp.dto.HotelInfoDto;
 
+import java.util.List;
+
 public interface HotelService {
 
     HotelDto createNewHotel(HotelDto hotelDto);
@@ -18,4 +20,7 @@ public interface HotelService {
     void activateHotel(Long id);
 
     HotelInfoDto getHotelInfoById(Long hotelId);
+
+    List<HotelDto> getAllHotels();
+
 }

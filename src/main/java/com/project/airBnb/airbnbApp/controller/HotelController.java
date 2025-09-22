@@ -1,12 +1,20 @@
 package com.project.airBnb.airbnbApp.controller;
 
+import com.project.airBnb.airbnbApp.dto.BookingDto;
 import com.project.airBnb.airbnbApp.dto.HotelDto;
+import com.project.airBnb.airbnbApp.dto.HotelReportDto;
+import com.project.airBnb.airbnbApp.dto.RoomDto;
+import com.project.airBnb.airbnbApp.services.BookingService;
 import com.project.airBnb.airbnbApp.services.HotelService;
+import com.project.airBnb.airbnbApp.services.RoomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin/hotels")
@@ -15,6 +23,8 @@ import org.springframework.web.bind.annotation.*;
 public class HotelController {
 
     private final HotelService hotelService;
+    private final BookingService bookingService;
+    private  final RoomService roomService;
 
     @PostMapping
     public ResponseEntity<HotelDto> createNewHotel(@RequestBody HotelDto hotelDto) {
@@ -47,4 +57,31 @@ public class HotelController {
         hotelService.activateHotel(hotelId);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping()
+    public ResponseEntity<List<HotelDto>> getAllHotels(){
+        return ResponseEntity.ok(hotelService.getAllHotels());
+    }
+
+    @GetMapping("/{hotelId}/bookings")
+    public ResponseEntity<List<BookingDto>> getAllBookingsByHotelId(@PathVariable Long hotelId){
+        return ResponseEntity.ok(bookingService.getAllBookingsByHotelId(hotelId));
+    }
+
+    @GetMapping("/{hotelId}/reports")
+    public ResponseEntity<HotelReportDto> getHotelReport(@PathVariable Long hotelId, @RequestParam(required = false)LocalDate startDate,
+                                                               @RequestParam(required = false)LocalDate endDate){
+
+        if(startDate == null) startDate = LocalDate.now().minusMonths(1);
+        if(endDate == null) endDate = LocalDate.now();
+        return ResponseEntity.ok(bookingService.getHotelReport(hotelId, startDate, endDate));
+    }
+
+    @PutMapping("/{hotelId}/rooms/{roomId}")
+    public ResponseEntity<RoomDto> updateRoomById (@PathVariable Long hotelId, @PathVariable Long roomId,
+                                                   @RequestBody RoomDto roomDto){
+        return ResponseEntity.ok(roomService.updateRoomById(hotelId, roomId, roomDto));
+    }
+
+
 }
