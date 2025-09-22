@@ -10,19 +10,6 @@ A **Spring Boot** backend project that implements core functionality of an Airbn
 
 ---
 
-## Table of Contents
-
-- [Features](#features)  
-- [Architecture & Project Structure](#architecture--project-structure)  
-- [Getting Started](#getting-started)  
-- [Configuration & Secrets Management](#configuration--secrets-management)  
-- [API Endpoints](#api-endpoints)  
-- [Running Tests](#running-tests)  
-- [Future Enhancements](#future-enhancements)  
-- [Author](#author)
-
----
-
 ## Features
 
 - User, Hotel, Room, Inventory management  
@@ -126,7 +113,6 @@ Here are some of the key endpoints exposed by this backend:
 | Room Admin Ops    | `POST / PUT / DELETE` | `/api/rooms/admin/...`          | Admin operations on rooms |
 | Inventory         | Various     | `/api/inventories/...`                    | Manage inventory for rooms/hotels |
 
----
 ---
 
 ## API Documentation (Swagger / OpenAPI)
