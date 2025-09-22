@@ -2,7 +2,9 @@
 
 [![Java Version](https://img.shields.io/badge/Java-17-blue)]()
 [![Spring Boot Version](https://img.shields.io/badge/Spring_Boot-3.x-green)]()
-[![License](https://img.shields.io/badge/License-MIT-lightgrey)]()
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)](https://www.postgresql.org/)
+[![Build](https://img.shields.io/badge/Build-Maven-red)](https://maven.apache.org/)
+
 
 A **Spring Boot** backend project that implements core functionality of an Airbnb-style application: property (hotel/room) management, inventory, bookings, guests, payments, etc. It’s designed to showcase clean architecture, professional version control practices, and production-ready components.
 
